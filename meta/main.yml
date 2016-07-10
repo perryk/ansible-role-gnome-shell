@@ -1,7 +1,6 @@
 galaxy_info:
-  author: Eduard Angold
+  author: mpv
   description: Installs gnome-shell and extensions
-  company:
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -98,9 +97,9 @@ galaxy_info:
   #  - 9.1
   #  - 9.1
   #  - 9.2
-  #- name: Ubuntu
-  #  versions:
-  #  - all
+  - name: Ubuntu
+    versions:
+    - all
   #  - lucid
   #  - maverick
   #  - natty

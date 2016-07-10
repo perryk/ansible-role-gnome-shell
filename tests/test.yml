@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-gnome_shell
+      - unrblt.gnome-shell
