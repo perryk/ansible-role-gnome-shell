@@ -73,7 +73,7 @@ EXAMPLES = '''
 '''
 
 
-# ===========================================
+#
 # Module code.
 #
 
@@ -106,6 +106,11 @@ def _get_extension_info(module, id, gnome_site, gnome_version):
         info = json.load(info)
     except Exception, e:
         module.fail_json(msg="Failure downloading metadata from %s %s" % (gnome_site, e))
+
+    if not 'download_url' in info:
+        name = info.get('name', 'Unknown')
+        module.fail_json(msg="Extension '%s' (%d) is not available for version %s" % (name, id, gnome_version))
+
     return info
 
 def _install_extension(module, gnome_site, gnome_extension_path, extension_url, extension_uuid):
