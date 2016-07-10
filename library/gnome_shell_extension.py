@@ -85,7 +85,8 @@ def _is_extensions_enabled(module, extension_uuid):
 
 def _get_enabled_extensions_list(module):
     enabled_extensions_str = module.run_command(' '.join(['gsettings', 'get', 'org.gnome.shell', 'enabled-extensions']))[1]
-    return ast.literal_eval(enabled_extensions_str)
+    unique = set(ast.literal_eval(enabled_extensions_str))
+    return list(unique)
 
 def _set_extensions(module, extension_list):
     module.run_command(' '.join(['gsettings', 'set', 'org.gnome.shell', 'enabled-extensions', '"' + str(extension_list) + '"']))
