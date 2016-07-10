@@ -1,15 +1,12 @@
-virtualbox
-==========
+# gnome-shell
 
 Installs gnome-shell and adds module to manage gnome-shell extensions
 
-Requirements
-------------
+## Requirements
 
 This role requires Ansible 2.0 or higher.
 
-Role Variables
---------------
+## Role Variables
 
 | Name                   | Default                            | Description                              |
 |------------------------|------------------------------------|------------------------------------------|
@@ -17,29 +14,30 @@ Role Variables
 | gnome_extension_owner  | root                               | owner of the extension                   |
 | gnome_shell_extensions | []                                 | extension id's which should be installed |
 
-Dependencies
-------------
+## Dependencies
 
-Example Playbook
-----------------
+None.
+
+## Example Playbook
 
 Install gnome-shell and the extensions:
 - https://extensions.gnome.org/extension/442/drop-down-terminal/
 - https://extensions.gnome.org/extension/1005/focus-my-window/
 
-```
+```yaml
 - hosts: all
   roles:
-   - { role: ansible-gnome_shell, gnome_extension_path: /home/edi/.local/share/gnome-shell/extensions/, gnome_extension_owner: edi, gnome_shell_extensions: [442, 1005] }
+   - role: unrblt.gnome-shell
+     gnome_extension_path: /home/edi/.local/share/gnome-shell/extensions/
+     gnome_extension_owner: edi
+     gnome_shell_extensions: [442, 1005]
 ```
 
-License
--------
+## License
 
 BSD
 
-Author Information
-------------------
+## Author Information
 
-Eduard Angold
+Original role by Eduard Angold
 
