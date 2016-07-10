@@ -151,7 +151,7 @@ def main():
     status = module.params['status']
     if not module.params['gnome_version']:
         gnome_version = module.run_command(" ".join(['gnome-shell', '--version']))[1].split()[-1]
-    gnome_extension_path = module.params['gnome_extension_path']
+    gnome_extension_path = os.path.expanduser(module.params['gnome_extension_path'])
     gnome_site = module.params['gnome_site']
     extension_info = _get_extension_info(module, id, gnome_site, gnome_version)
 
